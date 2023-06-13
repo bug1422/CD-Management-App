@@ -87,7 +87,8 @@ namespace CD_Management_System
                     reload();
                     break;
                 case "Update":
-
+                    updateSong();
+                    reload();
                     break;
                 case "Delete":
                     deleteSong();
@@ -199,6 +200,21 @@ namespace CD_Management_System
             intSongID.Text = string.Empty;
             intReleaseYear.Text = string.Empty;
             dblPrice.Text = string.Empty;
+        }
+
+        private void updateSong()
+        {
+            var id = Int32.Parse(intSongID.Text);
+            var temp = _songRepository.GetAll().Where(p => p.SongId.Equals(id)).FirstOrDefault();
+
+            if (temp != null)
+            {
+                temp.SongName = txtSongName.Text;
+                temp.Duration = txtDuration.Text;
+                temp.AlbumId = Int32.Parse(intAlbumID.Text);
+                _songRepository.Update(temp);
+            }
+
         }
     }
 }
