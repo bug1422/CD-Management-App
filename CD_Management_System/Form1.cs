@@ -84,16 +84,17 @@ namespace CD_Management_System
                         createSong(createAlbum());
 
                     }
-                    reload();
+                    reloadSong();
                     break;
                 case "Update":
                     updateSong();
-                    reload();
+                    reloadSong();
                     break;
                 case "Delete":
                     deleteSong();
+                    reloadAlbum();
+                    reloadSong();
                     clearForm();
-                    reload();
                     break;
                 case "Cancel":
                     clearForm();
@@ -128,7 +129,7 @@ namespace CD_Management_System
 
         }
 
-        public void reload()
+        public void reloadAlbum()
         {
             var albumList = _albumRepository.GetAll()
                 .Select(p => new
@@ -146,6 +147,11 @@ namespace CD_Management_System
             {
                 DataSource = albumList
             };
+            
+        }
+
+        private void reloadSong()
+        {
             var listAlbum = _albumRepository.GetAll()
                 .Select(p => new { p.AlbumId, p.AlbumName })
                 .ToList();

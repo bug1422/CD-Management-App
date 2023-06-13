@@ -30,6 +30,7 @@ namespace Repository.Models
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(GetConnectionString());
+                optionsBuilder.EnableSensitiveDataLogging();
             }
         }
 
