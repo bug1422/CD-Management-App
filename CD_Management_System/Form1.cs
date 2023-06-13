@@ -74,27 +74,31 @@ namespace CD_Management_System
             {
                 case "Create":
                     int id = Int32.Parse(intAlbumID.Text);
-                    if (_albumRepository.GetAll().Where(p => p.AlbumId.Equals(id)).FirstOrDefault() != null)
+                    if (validateNull() && validateInterger() && validateDouble())
                     {
                         createSong(_albumRepository.GetAll().Where(p => p.AlbumId.Equals(id)).FirstOrDefault());
-                    }
-                    else
-                    {
-                        createAlbum();
-                        createSong(createAlbum());
-
                     }
                     reloadSong();
                     break;
                 case "Update":
                     updateSong();
-                    reloadSong();
+                    if (dgvSongList.Rows.Count != 0)
+                    {
+                        reloadSong();
+                    }
                     break;
                 case "Delete":
+
                     deleteSong();
                     reloadAlbum();
-                    reloadSong();
+                    if (dgvSongList.Rows.Count != 0)
+                    {
+                        reloadSong();
+                    }
+
                     clearForm();
+
+
                     break;
                 case "Cancel":
                     clearForm();
@@ -147,7 +151,7 @@ namespace CD_Management_System
             {
                 DataSource = albumList
             };
-            
+
         }
 
         private void reloadSong()
@@ -173,10 +177,27 @@ namespace CD_Management_System
 
         public void deleteSong()
         {
-            var id = Int32.Parse(intSongID.Text);
-            var selectedSong = _songRepository.GetAll()
-                .Where(p => p.SongId.Equals(id)).FirstOrDefault();
-            _songRepository.Delete(selectedSong);
+            int id;
+            if (!string.IsNullOrEmpty(intAlbumID.Text))
+            {
+                bool test = Int32.TryParse(intSongID.Text, out id);
+                if (test)
+                {
+                    var selectedSong = _songRepository.GetAll()
+                                    .Where(p => p.SongId.Equals(id)).FirstOrDefault();
+                    _songRepository.Delete(selectedSong);
+                }
+                else
+                {
+                    txtLog.Text = "";
+                    txtLog.Text = "Wrong SongID format dude";
+                }
+            }
+            else
+            {
+                txtLog.Text = "";
+                txtLog.Text = "You didn't choose a song dude!";
+            }
         }
 
         private void chooseSong(object sender, DataGridViewCellEventArgs e)
@@ -210,17 +231,69 @@ namespace CD_Management_System
 
         private void updateSong()
         {
-            var id = Int32.Parse(intSongID.Text);
-            var temp = _songRepository.GetAll().Where(p => p.SongId.Equals(id)).FirstOrDefault();
-
-            if (temp != null)
+            int id;
+            if (!string.IsNullOrEmpty(intSongID.Text))
             {
-                temp.SongName = txtSongName.Text;
-                temp.Duration = txtDuration.Text;
-                temp.AlbumId = Int32.Parse(intAlbumID.Text);
-                _songRepository.Update(temp);
-            }
+                bool test = int.TryParse(intSongID.Text, out id);
+                if (test)
+                {
+                    var temp = _songRepository.GetAll().Where(p => p.SongId.Equals(id)).FirstOrDefault();
+                    if (temp != null && validateNull())
+                    {
+                        temp.SongName = txtSongName.Text;
+                        temp.Duration = txtDuration.Text;
+                        temp.AlbumId = Int32.Parse(intAlbumID.Text);
+                        _songRepository.Update(temp);
+                    }
+                } else
+                {
+                    txtLog.Text = "";
+                    txtLog.Text = "Wrong SongID format dude";
+                }
+            } else
+            {
 
+                txtLog.Text = "";
+                txtLog.Text = "You didn't choose a song dude!";
+            }
+        }
+
+        private bool validateNull()
+        {
+            var elements = new[] { txtAlbumName, txtAlbumGerne, txtAuthor, txtDuration, txtSongName, intAlbumID, intQuantity, intReleaseYear, dblPrice };
+            bool valid = true;
+            foreach (var element in elements.Where(d => string.IsNullOrEmpty(d.Text)))
+            {
+                txtLog.Text = txtLog.Text + "" + element.Name + "is empty; \n";
+                valid = false;
+            }
+            return valid;
+        }
+
+        private bool validateInterger()
+        {
+            var elements = new[] { intQuantity, intReleaseYear };
+            int temp;
+            var valid = true;
+            foreach (var element in elements.Where(d => int.TryParse(d.Text, out temp) == false))
+            {
+                txtLog.Text = txtLog.Text + "" + element.Name + "is not integer; \n";
+                valid = false;
+            }
+            return valid;
+        }
+
+        private bool validateDouble()
+        {
+            var elements = new[] { dblPrice };
+            double temp;
+            var valid = true;
+            foreach (var element in elements.Where(d => Double.TryParse(d.Text, out temp) == false))
+            {
+                txtLog.Text = txtLog.Text + "" + element.Name + "is not double; \n";
+                valid = false;
+            }
+            return valid;
         }
     }
 }
