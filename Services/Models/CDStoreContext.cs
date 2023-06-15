@@ -21,7 +21,7 @@ namespace Services.Models
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<ActivityLog> ActivityLogs { get; set; }
         public virtual DbSet<Cdalbum> Cdalbums { get; set; }
-        public virtual DbSet<Request> Requests { get; set; }
+        public virtual DbSet<CustomerRequest> CustomerRequests { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Song> Songs { get; set; }
 
@@ -29,9 +29,11 @@ namespace Services.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer(GetConnectionString());
             }
         }
+
         private string GetConnectionString()
         {
             IConfiguration config = new ConfigurationBuilder()
@@ -41,6 +43,8 @@ namespace Services.Models
             var strConn = config["ConnectionStrings:CDStoreDB"];
             return strConn;
         }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -54,18 +58,18 @@ namespace Services.Models
 
                 entity.Property(e => e.Address)
                     .IsRequired()
-                    .HasMaxLength(50)
+                    .HasMaxLength(200)
                     .HasColumnName("address");
 
                 entity.Property(e => e.Email)
                     .IsRequired()
-                    .HasMaxLength(50)
+                    .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("email");
 
                 entity.Property(e => e.FullName)
                     .IsRequired()
-                    .HasMaxLength(50)
+                    .HasMaxLength(200)
                     .HasColumnName("fullName");
 
                 entity.Property(e => e.PassWord)
@@ -77,7 +81,7 @@ namespace Services.Models
 
                 entity.Property(e => e.PhoneNumber)
                     .IsRequired()
-                    .HasMaxLength(50)
+                    .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("phoneNumber");
 
@@ -89,49 +93,39 @@ namespace Services.Models
 
                 entity.Property(e => e.UserName)
                     .IsRequired()
-                    .HasMaxLength(50)
+                    .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("userName");
+
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.Accounts)
+                    .HasForeignKey(d => d.RoleId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Account__roleId__267ABA7A");
             });
 
             modelBuilder.Entity<ActivityLog>(entity =>
             {
                 entity.HasKey(e => e.ActivityId)
-                    .HasName("PK__Activity__0FC9CBECCFE567B0");
+                    .HasName("PK__Activity__0FC9CBEC15BD2031");
 
                 entity.ToTable("ActivityLog");
 
                 entity.Property(e => e.ActivityId).HasColumnName("activityId");
 
-                entity.Property(e => e.AccountId).HasColumnName("accountId");
-
                 entity.Property(e => e.Activity)
-                    .HasMaxLength(1)
+                    .HasMaxLength(200)
                     .HasColumnName("activity");
 
                 entity.Property(e => e.ActivityDate)
                     .HasColumnType("date")
                     .HasColumnName("activityDate");
-
-                entity.Property(e => e.RequestId).HasColumnName("requestId");
-
-                entity.HasOne(d => d.Account)
-                    .WithMany(p => p.ActivityLogs)
-                    .HasForeignKey(d => d.AccountId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__ActivityL__accou__2F10007B");
-
-                entity.HasOne(d => d.Request)
-                    .WithMany(p => p.ActivityLogs)
-                    .HasForeignKey(d => d.RequestId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__ActivityL__reque__300424B4");
             });
 
             modelBuilder.Entity<Cdalbum>(entity =>
             {
                 entity.HasKey(e => e.AlbumId)
-                    .HasName("PK__CDAlbum__75BF3ECF5EB5ED48");
+                    .HasName("PK__CDAlbum__75BF3ECFCFEA4E83");
 
                 entity.ToTable("CDAlbum");
 
@@ -167,9 +161,12 @@ namespace Services.Models
                 entity.Property(e => e.ReleaseYear).HasColumnName("releaseYear");
             });
 
-            modelBuilder.Entity<Request>(entity =>
+            modelBuilder.Entity<CustomerRequest>(entity =>
             {
-                entity.ToTable("Request");
+                entity.HasKey(e => e.RequestId)
+                    .HasName("PK__Customer__E3C5DE314B5E9491");
+
+                entity.ToTable("CustomerRequest");
 
                 entity.Property(e => e.RequestId).HasColumnName("requestId");
 
@@ -180,7 +177,7 @@ namespace Services.Models
 
                 entity.Property(e => e.Description)
                     .IsRequired()
-                    .HasMaxLength(200)
+                    .HasMaxLength(4000)
                     .HasColumnName("description");
 
                 entity.Property(e => e.Email)
@@ -195,7 +192,11 @@ namespace Services.Models
                     .IsUnicode(false)
                     .HasColumnName("phoneNumber");
 
-                entity.Property(e => e.Status).HasColumnName("status");
+                entity.Property(e => e.Status)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .HasColumnName("status");
 
                 entity.Property(e => e.SubmitDate)
                     .HasColumnType("date")
@@ -240,7 +241,7 @@ namespace Services.Models
                     .WithMany(p => p.Songs)
                     .HasForeignKey(d => d.AlbumId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Song__albumId__2A4B4B5E");
+                    .HasConstraintName("FK__Song__albumId__2B3F6F97");
             });
 
             OnModelCreatingPartial(modelBuilder);

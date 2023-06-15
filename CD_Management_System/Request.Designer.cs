@@ -39,26 +39,24 @@
             txtEmail = new TextBox();
             txtPhone = new TextBox();
             txtDescription = new TextBox();
-            txtStatus = new TextBox();
-            txtDate = new TextBox();
             acceptBtn = new Button();
             denyBtn = new Button();
-            button2 = new Button();
+            removeBtn = new Button();
             backBtn = new Button();
-            txtNoti = new Label();
-            txtFromEmail = new TextBox();
-            txtToEmail = new TextBox();
-            fromEmail = new Label();
-            label1 = new Label();
-            body = new Label();
-            txtBody = new TextBox();
-            editBtn = new Button();
-            subject = new Label();
-            txtSubject = new TextBox();
-            sendBtn = new Button();
+            addBtn = new Button();
+            txtSearch = new TextBox();
+            searchList = new Label();
+            txtDate = new TextBox();
+            txtStatus = new TextBox();
+            clearSearch = new Button();
+            order = new Label();
+            searchBox = new ComboBox();
+            search = new Label();
             cancelBtn = new Button();
-            getMailBtn = new Button();
-            getReqBtn = new Button();
+            confirmBtn = new Button();
+            checkBtn = new Button();
+            clearBtn = new Button();
+            textCount = new Label();
             ((System.ComponentModel.ISupportInitialize)requestDgv).BeginInit();
             SuspendLayout();
             // 
@@ -67,326 +65,333 @@
             requestDgv.AllowUserToAddRows = false;
             requestDgv.AllowUserToDeleteRows = false;
             requestDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            requestDgv.Location = new Point(14, 15);
+            requestDgv.Location = new Point(12, 11);
+            requestDgv.Margin = new Padding(3, 2, 3, 2);
             requestDgv.Name = "requestDgv";
             requestDgv.ReadOnly = true;
             requestDgv.RowHeadersWidth = 51;
             requestDgv.RowTemplate.Height = 29;
-            requestDgv.Size = new Size(937, 188);
+            requestDgv.Size = new Size(778, 141);
             requestDgv.TabIndex = 0;
             requestDgv.CellDoubleClick += requestDgv_CellDoubleClick;
             // 
             // name
             // 
             name.AutoSize = true;
-            name.Location = new Point(11, 216);
+            name.Location = new Point(205, 174);
             name.Name = "name";
-            name.Size = new Size(49, 20);
+            name.Size = new Size(39, 15);
             name.TabIndex = 1;
             name.Text = "Name";
             // 
             // email
             // 
             email.AutoSize = true;
-            email.Location = new Point(11, 425);
+            email.Location = new Point(205, 304);
             email.Name = "email";
-            email.Size = new Size(46, 20);
+            email.Size = new Size(36, 15);
             email.TabIndex = 2;
             email.Text = "Email";
             // 
             // phoneNumber
             // 
             phoneNumber.AutoSize = true;
-            phoneNumber.Location = new Point(11, 308);
+            phoneNumber.Location = new Point(205, 243);
             phoneNumber.Name = "phoneNumber";
-            phoneNumber.Size = new Size(108, 20);
+            phoneNumber.Size = new Size(88, 15);
             phoneNumber.TabIndex = 3;
             phoneNumber.Text = "Phone Number";
             // 
             // description
             // 
             description.AutoSize = true;
-            description.Location = new Point(230, 308);
+            description.Location = new Point(378, 204);
             description.Name = "description";
-            description.Size = new Size(85, 20);
+            description.Size = new Size(67, 15);
             description.TabIndex = 4;
             description.Text = "Description";
             // 
             // status
             // 
             status.AutoSize = true;
-            status.Location = new Point(230, 217);
+            status.Location = new Point(205, 371);
             status.Name = "status";
-            status.Size = new Size(49, 20);
+            status.Size = new Size(39, 15);
             status.TabIndex = 5;
             status.Text = "Status";
             // 
             // submitDate
             // 
             submitDate.AutoSize = true;
-            submitDate.Location = new Point(11, 535);
+            submitDate.Location = new Point(205, 438);
             submitDate.Name = "submitDate";
-            submitDate.Size = new Size(92, 20);
+            submitDate.Size = new Size(72, 15);
             submitDate.TabIndex = 6;
             submitDate.Text = "Submit Date";
             // 
             // txtName
             // 
-            txtName.Location = new Point(11, 248);
+            txtName.Location = new Point(205, 198);
+            txtName.Margin = new Padding(3, 2, 3, 2);
             txtName.Name = "txtName";
-            txtName.ReadOnly = true;
-            txtName.Size = new Size(172, 27);
+            txtName.Size = new Size(151, 23);
             txtName.TabIndex = 7;
+            txtName.KeyPress += always_handled;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(11, 457);
+            txtEmail.Location = new Point(205, 328);
+            txtEmail.Margin = new Padding(3, 2, 3, 2);
             txtEmail.Name = "txtEmail";
-            txtEmail.ReadOnly = true;
-            txtEmail.Size = new Size(172, 27);
+            txtEmail.Size = new Size(151, 23);
             txtEmail.TabIndex = 8;
+            txtEmail.KeyPress += event_handled;
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(11, 351);
+            txtPhone.Location = new Point(205, 268);
+            txtPhone.Margin = new Padding(3, 2, 3, 2);
             txtPhone.Name = "txtPhone";
-            txtPhone.ReadOnly = true;
-            txtPhone.Size = new Size(172, 27);
+            txtPhone.Size = new Size(151, 23);
             txtPhone.TabIndex = 9;
+            txtPhone.KeyPress += event_handled;
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(230, 351);
+            txtDescription.Location = new Point(378, 233);
+            txtDescription.Margin = new Padding(3, 2, 3, 2);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
-            txtDescription.ReadOnly = true;
             txtDescription.ScrollBars = ScrollBars.Vertical;
-            txtDescription.Size = new Size(326, 149);
+            txtDescription.Size = new Size(271, 255);
             txtDescription.TabIndex = 10;
-            // 
-            // txtStatus
-            // 
-            txtStatus.Location = new Point(230, 249);
-            txtStatus.Name = "txtStatus";
-            txtStatus.ReadOnly = true;
-            txtStatus.Size = new Size(172, 27);
-            txtStatus.TabIndex = 11;
-            // 
-            // txtDate
-            // 
-            txtDate.Location = new Point(11, 577);
-            txtDate.Name = "txtDate";
-            txtDate.ReadOnly = true;
-            txtDate.Size = new Size(172, 27);
-            txtDate.TabIndex = 12;
+            txtDescription.TextChanged += txtDescription_TextChanged;
+            txtDescription.KeyPress += event_handled;
             // 
             // acceptBtn
             // 
-            acceptBtn.Location = new Point(230, 548);
+            acceptBtn.AutoSize = true;
+            acceptBtn.Enabled = false;
+            acceptBtn.Location = new Point(676, 187);
+            acceptBtn.Margin = new Padding(3, 2, 3, 2);
             acceptBtn.Name = "acceptBtn";
-            acceptBtn.Size = new Size(94, 60);
+            acceptBtn.Size = new Size(114, 48);
             acceptBtn.TabIndex = 13;
-            acceptBtn.Text = "Accept";
+            acceptBtn.Text = "Accept Request";
             acceptBtn.UseVisualStyleBackColor = true;
             acceptBtn.Click += acceptBtn_Click;
             // 
             // denyBtn
             // 
-            denyBtn.Location = new Point(354, 548);
+            denyBtn.AutoSize = true;
+            denyBtn.Enabled = false;
+            denyBtn.Location = new Point(676, 249);
+            denyBtn.Margin = new Padding(3, 2, 3, 2);
             denyBtn.Name = "denyBtn";
-            denyBtn.Size = new Size(94, 60);
+            denyBtn.Size = new Size(114, 48);
             denyBtn.TabIndex = 14;
-            denyBtn.Text = "Deny";
+            denyBtn.Text = "Deny Request";
             denyBtn.UseVisualStyleBackColor = true;
             denyBtn.Click += denyBtn_Click;
             // 
-            // button2
+            // removeBtn
             // 
-            button2.Enabled = false;
-            button2.Location = new Point(147, 672);
-            button2.Name = "button2";
-            button2.Size = new Size(105, 53);
-            button2.TabIndex = 15;
-            button2.Text = "Add album";
-            button2.UseVisualStyleBackColor = true;
+            removeBtn.AutoSize = true;
+            removeBtn.Enabled = false;
+            removeBtn.Location = new Point(676, 440);
+            removeBtn.Margin = new Padding(3, 2, 3, 2);
+            removeBtn.Name = "removeBtn";
+            removeBtn.Size = new Size(114, 48);
+            removeBtn.TabIndex = 15;
+            removeBtn.Text = "Remove Request";
+            removeBtn.UseVisualStyleBackColor = true;
+            removeBtn.Click += removeBtn_Click;
             // 
             // backBtn
             // 
-            backBtn.Location = new Point(14, 672);
+            backBtn.AutoSize = true;
+            backBtn.Location = new Point(12, 440);
+            backBtn.Margin = new Padding(3, 2, 3, 2);
             backBtn.Name = "backBtn";
-            backBtn.Size = new Size(104, 53);
+            backBtn.Size = new Size(114, 48);
             backBtn.TabIndex = 16;
             backBtn.Text = "Back";
             backBtn.UseVisualStyleBackColor = true;
             backBtn.Click += backBtn_Click;
             // 
-            // txtNoti
+            // addBtn
             // 
-            txtNoti.AutoSize = true;
-            txtNoti.Location = new Point(574, 688);
-            txtNoti.Name = "txtNoti";
-            txtNoti.Size = new Size(113, 20);
-            txtNoti.TabIndex = 17;
-            txtNoti.Text = "Sending email...";
-            txtNoti.Visible = false;
+            addBtn.AutoSize = true;
+            addBtn.Location = new Point(676, 373);
+            addBtn.Margin = new Padding(3, 2, 3, 2);
+            addBtn.Name = "addBtn";
+            addBtn.Size = new Size(114, 48);
+            addBtn.TabIndex = 17;
+            addBtn.Text = "Add Request";
+            addBtn.UseVisualStyleBackColor = true;
+            addBtn.Click += addBtn_Click;
             // 
-            // txtFromEmail
+            // txtSearch
             // 
-            txtFromEmail.Location = new Point(574, 248);
-            txtFromEmail.Margin = new Padding(3, 4, 3, 4);
-            txtFromEmail.Name = "txtFromEmail";
-            txtFromEmail.ReadOnly = true;
-            txtFromEmail.Size = new Size(204, 27);
-            txtFromEmail.TabIndex = 18;
-            txtFromEmail.Text = "cdalbumcompany@gmail.com";
+            txtSearch.Location = new Point(12, 255);
+            txtSearch.Margin = new Padding(3, 2, 3, 2);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(120, 23);
+            txtSearch.TabIndex = 20;
+            txtSearch.TextChanged += searchText;
             // 
-            // txtToEmail
+            // searchList
             // 
-            txtToEmail.Location = new Point(803, 252);
-            txtToEmail.Margin = new Padding(3, 4, 3, 4);
-            txtToEmail.Name = "txtToEmail";
-            txtToEmail.ReadOnly = true;
-            txtToEmail.Size = new Size(204, 27);
-            txtToEmail.TabIndex = 19;
+            searchList.AutoSize = true;
+            searchList.Location = new Point(12, 163);
+            searchList.Name = "searchList";
+            searchList.Size = new Size(60, 15);
+            searchList.TabIndex = 21;
+            searchList.Text = "Search list";
             // 
-            // fromEmail
+            // txtDate
             // 
-            fromEmail.AutoSize = true;
-            fromEmail.Location = new Point(574, 216);
-            fromEmail.Name = "fromEmail";
-            fromEmail.Size = new Size(87, 20);
-            fromEmail.TabIndex = 20;
-            fromEmail.Text = "From Email:";
-            fromEmail.Visible = false;
+            txtDate.Location = new Point(205, 465);
+            txtDate.Margin = new Padding(3, 2, 3, 2);
+            txtDate.Name = "txtDate";
+            txtDate.Size = new Size(151, 23);
+            txtDate.TabIndex = 12;
+            txtDate.KeyPress += always_handled;
             // 
-            // label1
+            // txtStatus
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(803, 220);
-            label1.Name = "label1";
-            label1.Size = new Size(69, 20);
-            label1.TabIndex = 21;
-            label1.Text = "To Email:";
-            label1.Visible = false;
+            txtStatus.Location = new Point(205, 398);
+            txtStatus.Margin = new Padding(3, 2, 3, 2);
+            txtStatus.Name = "txtStatus";
+            txtStatus.Size = new Size(151, 23);
+            txtStatus.TabIndex = 23;
+            txtStatus.KeyPress += always_handled;
             // 
-            // body
+            // clearSearch
             // 
-            body.AutoSize = true;
-            body.Location = new Point(574, 385);
-            body.Name = "body";
-            body.Size = new Size(88, 20);
-            body.TabIndex = 23;
-            body.Text = "Description:";
-            body.Visible = false;
+            clearSearch.AutoSize = true;
+            clearSearch.Location = new Point(137, 255);
+            clearSearch.Margin = new Padding(3, 2, 3, 2);
+            clearSearch.Name = "clearSearch";
+            clearSearch.Size = new Size(46, 25);
+            clearSearch.TabIndex = 24;
+            clearSearch.Text = "Clear";
+            clearSearch.UseVisualStyleBackColor = true;
+            clearSearch.Click += clearSearch_Click;
             // 
-            // txtBody
+            // order
             // 
-            txtBody.Enabled = false;
-            txtBody.Location = new Point(574, 417);
-            txtBody.Margin = new Padding(3, 4, 3, 4);
-            txtBody.Multiline = true;
-            txtBody.Name = "txtBody";
-            txtBody.PlaceholderText = "Enter your customized paragraph here.";
-            txtBody.Size = new Size(351, 136);
-            txtBody.TabIndex = 22;
+            order.Cursor = Cursors.Hand;
+            order.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            order.Location = new Point(150, 186);
+            order.Name = "order";
+            order.Size = new Size(24, 21);
+            order.TabIndex = 18;
+            order.Text = "^";
+            order.TextAlign = ContentAlignment.MiddleCenter;
+            order.Click += order_Click;
             // 
-            // editBtn
+            // searchBox
             // 
-            editBtn.Location = new Point(465, 548);
-            editBtn.Name = "editBtn";
-            editBtn.Size = new Size(91, 60);
-            editBtn.TabIndex = 24;
-            editBtn.Text = "Edit";
-            editBtn.UseVisualStyleBackColor = true;
-            editBtn.Click += editBtn_Click;
+            searchBox.FormattingEnabled = true;
+            searchBox.Location = new Point(12, 187);
+            searchBox.Margin = new Padding(3, 2, 3, 2);
+            searchBox.Name = "searchBox";
+            searchBox.Size = new Size(120, 23);
+            searchBox.TabIndex = 19;
+            searchBox.SelectedIndexChanged += searchIndexChanged;
             // 
-            // subject
+            // search
             // 
-            subject.AutoSize = true;
-            subject.Location = new Point(574, 299);
-            subject.Name = "subject";
-            subject.Size = new Size(61, 20);
-            subject.TabIndex = 26;
-            subject.Text = "Subject:";
-            subject.Visible = false;
-            // 
-            // txtSubject
-            // 
-            txtSubject.Enabled = false;
-            txtSubject.Location = new Point(574, 331);
-            txtSubject.Margin = new Padding(3, 4, 3, 4);
-            txtSubject.Name = "txtSubject";
-            txtSubject.Size = new Size(204, 27);
-            txtSubject.TabIndex = 25;
-            txtSubject.Text = "About your request";
-            // 
-            // sendBtn
-            // 
-            sendBtn.Enabled = false;
-            sendBtn.Location = new Point(574, 601);
-            sendBtn.Name = "sendBtn";
-            sendBtn.Size = new Size(94, 60);
-            sendBtn.TabIndex = 27;
-            sendBtn.Text = "Send";
-            sendBtn.UseVisualStyleBackColor = true;
-            sendBtn.Click += send_Click;
+            search.AutoSize = true;
+            search.Location = new Point(12, 217);
+            search.Name = "search";
+            search.Size = new Size(165, 30);
+            search.TabIndex = 26;
+            search.Text = "Search by customer name\r\n(Remember only accept telex)\r\n";
             // 
             // cancelBtn
             // 
-            cancelBtn.Location = new Point(465, 548);
+            cancelBtn.AutoSize = true;
+            cancelBtn.Location = new Point(676, 373);
+            cancelBtn.Margin = new Padding(3, 2, 3, 2);
             cancelBtn.Name = "cancelBtn";
-            cancelBtn.Size = new Size(91, 60);
-            cancelBtn.TabIndex = 28;
-            cancelBtn.Text = "Cancel";
+            cancelBtn.Size = new Size(114, 48);
+            cancelBtn.TabIndex = 27;
+            cancelBtn.Text = "Cancel Request";
             cancelBtn.UseVisualStyleBackColor = true;
             cancelBtn.Visible = false;
             cancelBtn.Click += cancelBtn_Click;
             // 
-            // getMailBtn
+            // confirmBtn
             // 
-            getMailBtn.Location = new Point(291, 672);
-            getMailBtn.Name = "getMailBtn";
-            getMailBtn.Size = new Size(88, 53);
-            getMailBtn.TabIndex = 29;
-            getMailBtn.Text = "Get mail";
-            getMailBtn.UseVisualStyleBackColor = true;
-            getMailBtn.Click += getMailBtn_Click;
+            confirmBtn.AutoSize = true;
+            confirmBtn.Enabled = false;
+            confirmBtn.Location = new Point(676, 308);
+            confirmBtn.Margin = new Padding(3, 2, 3, 2);
+            confirmBtn.Name = "confirmBtn";
+            confirmBtn.Size = new Size(114, 48);
+            confirmBtn.TabIndex = 28;
+            confirmBtn.Text = "Confirm Request";
+            confirmBtn.UseVisualStyleBackColor = true;
+            confirmBtn.Click += confirmBtn_Click;
             // 
-            // getReqBtn
+            // checkBtn
             // 
-            getReqBtn.Location = new Point(407, 672);
-            getReqBtn.Name = "getReqBtn";
-            getReqBtn.Size = new Size(88, 53);
-            getReqBtn.TabIndex = 30;
-            getReqBtn.Text = "Get request";
-            getReqBtn.UseVisualStyleBackColor = true;
-            getReqBtn.Click += getReqBtn_Click;
+            checkBtn.AutoSize = true;
+            checkBtn.Location = new Point(451, 174);
+            checkBtn.Margin = new Padding(3, 2, 3, 2);
+            checkBtn.Name = "checkBtn";
+            checkBtn.Size = new Size(95, 47);
+            checkBtn.TabIndex = 30;
+            checkBtn.Text = "Check Request";
+            checkBtn.UseVisualStyleBackColor = true;
+            checkBtn.Click += checkBtn_Click;
+            // 
+            // clearBtn
+            // 
+            clearBtn.AutoSize = true;
+            clearBtn.Location = new Point(560, 174);
+            clearBtn.Margin = new Padding(3, 2, 3, 2);
+            clearBtn.Name = "clearBtn";
+            clearBtn.Size = new Size(89, 47);
+            clearBtn.TabIndex = 31;
+            clearBtn.Text = "Clear Request";
+            clearBtn.UseVisualStyleBackColor = true;
+            clearBtn.Click += clearBtn_Click;
+            // 
+            // textCount
+            // 
+            textCount.AutoSize = true;
+            textCount.Location = new Point(549, 468);
+            textCount.Name = "textCount";
+            textCount.Size = new Size(52, 15);
+            textCount.TabIndex = 32;
+            textCount.Text = "Count: 0";
             // 
             // Request
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1079, 796);
-            Controls.Add(getReqBtn);
-            Controls.Add(getMailBtn);
+            ClientSize = new Size(801, 502);
+            Controls.Add(textCount);
+            Controls.Add(clearBtn);
+            Controls.Add(checkBtn);
+            Controls.Add(confirmBtn);
             Controls.Add(cancelBtn);
-            Controls.Add(sendBtn);
-            Controls.Add(subject);
-            Controls.Add(txtSubject);
-            Controls.Add(editBtn);
-            Controls.Add(body);
-            Controls.Add(txtBody);
-            Controls.Add(label1);
-            Controls.Add(fromEmail);
-            Controls.Add(txtToEmail);
-            Controls.Add(txtFromEmail);
-            Controls.Add(txtNoti);
+            Controls.Add(search);
+            Controls.Add(clearSearch);
+            Controls.Add(txtStatus);
+            Controls.Add(searchList);
+            Controls.Add(txtSearch);
+            Controls.Add(searchBox);
+            Controls.Add(order);
+            Controls.Add(addBtn);
             Controls.Add(backBtn);
-            Controls.Add(button2);
+            Controls.Add(removeBtn);
             Controls.Add(denyBtn);
             Controls.Add(acceptBtn);
             Controls.Add(txtDate);
-            Controls.Add(txtStatus);
             Controls.Add(txtDescription);
             Controls.Add(txtPhone);
             Controls.Add(txtEmail);
@@ -398,6 +403,7 @@
             Controls.Add(email);
             Controls.Add(name);
             Controls.Add(requestDgv);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Request";
             Text = "Request";
             ((System.ComponentModel.ISupportInitialize)requestDgv).EndInit();
@@ -418,25 +424,23 @@
         private TextBox txtEmail;
         private TextBox txtPhone;
         private TextBox txtDescription;
-        private TextBox txtStatus;
-        private TextBox txtDate;
         private Button acceptBtn;
         private Button denyBtn;
-        private Button button2;
+        private Button removeBtn;
         private Button backBtn;
-        private Label txtNoti;
-        private TextBox txtFromEmail;
-        private TextBox txtToEmail;
-        private Label fromEmail;
-        private Label label1;
-        private Label body;
-        private TextBox txtBody;
-        private Button editBtn;
-        private Label subject;
-        private TextBox txtSubject;
-        private Button sendBtn;
+        private Button addBtn;
+        private TextBox txtSearch;
+        private Label searchList;
+        private TextBox txtDate;
+        private TextBox txtStatus;
+        private Button clearSearch;
+        private Label order;
+        private ComboBox searchBox;
+        private Label search;
         private Button cancelBtn;
-        private Button getMailBtn;
-        private Button getReqBtn;
+        private Button confirmBtn;
+        private Button checkBtn;
+        private Button clearBtn;
+        private Label textCount;
     }
 }

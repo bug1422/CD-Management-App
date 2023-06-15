@@ -28,6 +28,7 @@ namespace Services.Repository
         {
             _dbSet.Add(entity);
             _context.SaveChanges();
+            _context.ChangeTracker.Clear();
         }
 
         public bool Delete(T entity)
@@ -37,12 +38,11 @@ namespace Services.Repository
                 _dbSet.Remove(entity);
                 _context.SaveChanges();
                 return true;
-            }
-            catch (Exception ex) 
+            } catch(Exception ex)
             {
                 return false;
             }
-        }
+         }
 
         public void Update(T entity)
         {
