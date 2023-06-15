@@ -3,12 +3,6 @@ using Services.Repository;
 
 using System.Data;
 
-using System.Net.Mail;
-
-using MailKit;
-using MailKit.Net.Imap;
-using MailKit.Search;
-using MimeKit;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Diagnostics;
