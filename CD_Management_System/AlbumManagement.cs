@@ -108,7 +108,8 @@ namespace CD_Management_System
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             var cdAlbum = _albumService.GetAll().Where(p => p.AlbumId.Equals(Int32.Parse(txtAlbumId.Text))).FirstOrDefault();
-            if (Int32.Parse(txtAlbumId.Text).Equals(cdAlbum.AlbumId)) {
+            if (Int32.Parse(txtAlbumId.Text).Equals(cdAlbum.AlbumId))
+            {
                 if (txtAlbumName.Text == "" || txtReleaseYear.Text == "" || txtAuthor.Text == "" || txtGenre.Text == "" || txtQuantity.Text == "" || txtPrice.Text == "")
                 {
                     MessageBox.Show("Khong the de trong o nhap", "Thong bao", MessageBoxButtons.OK);
@@ -127,6 +128,17 @@ namespace CD_Management_System
                 }
             }
 
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure to log out?", "Confirm", MessageBoxButtons.YesNo);
+            if (  dialogResult == DialogResult.Yes)
+            {
+                this.Hide();
+                Form form = new Login();
+                form.Show();
+            }          
         }
     }
 }
