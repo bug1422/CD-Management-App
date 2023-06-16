@@ -1,0 +1,15 @@
+E:\PRN211\project\CD-Management-App\Services\bin\Debug\net6.0\Services.deps.json
+E:\PRN211\project\CD-Management-App\Services\bin\Debug\net6.0\Services.runtimeconfig.json
+E:\PRN211\project\CD-Management-App\Services\bin\Debug\net6.0\Services.dll
+E:\PRN211\project\CD-Management-App\Services\bin\Debug\net6.0\Services.pdb
+E:\PRN211\project\CD-Management-App\Services\obj\Debug\net6.0\Services.csproj.AssemblyReference.cache
+E:\PRN211\project\CD-Management-App\Services\obj\Debug\net6.0\Services.GeneratedMSBuildEditorConfig.editorconfig
+E:\PRN211\project\CD-Management-App\Services\obj\Debug\net6.0\Services.AssemblyInfoInputs.cache
+E:\PRN211\project\CD-Management-App\Services\obj\Debug\net6.0\Services.AssemblyInfo.cs
+E:\PRN211\project\CD-Management-App\Services\obj\Debug\net6.0\Services.csproj.CoreCompileInputs.cache
+E:\PRN211\project\CD-Management-App\Services\obj\Debug\net6.0\Services.dll
+E:\PRN211\project\CD-Management-App\Services\obj\Debug\net6.0\refint\Services.dll
+E:\PRN211\project\CD-Management-App\Services\obj\Debug\net6.0\Services.pdb
+E:\PRN211\project\CD-Management-App\Services\obj\Debug\net6.0\Services.genruntimeconfig.cache
+E:\PRN211\project\CD-Management-App\Services\obj\Debug\net6.0\ref\Services.dll
+E:\PRN211\project\CD-Management-App\Services\bin\Debug\net6.0\appsettings.json

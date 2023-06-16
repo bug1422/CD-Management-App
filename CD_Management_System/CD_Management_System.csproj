@@ -12,10 +12,4 @@
     <ProjectReference Include="..\Services\Services.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="S22.Imap">
-      <HintPath>external\S22.Imap.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>
