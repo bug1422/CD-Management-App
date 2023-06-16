@@ -1,12 +1,8 @@
 ﻿using Services.Models;
 using Services.Repository;
-
 using System.Data;
-
 using System.Text.RegularExpressions;
 using System.Globalization;
-using System.Diagnostics;
-using System.Drawing.Text;
 
 namespace CD_Management_System
 {
