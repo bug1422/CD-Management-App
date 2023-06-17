@@ -1,9 +1,17 @@
-
-
 using Microsoft.EntityFrameworkCore;
 using Repository.Models;
 using Repository.Services;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace CD_Management_System
 {
@@ -59,11 +67,7 @@ namespace CD_Management_System
         private void btnCreate_click(object sender, EventArgs e)
         {
             Account account = new Account();
-            if ( txtUserName.Text == ""
-                || txtFullName.Text == ""
-                || txtEmail.Text == ""
-                || txtAddress.Text == ""
-                || txtPhoneNumber.Text == "")
+            if (txtUserName.Text == "" || txtFullName.Text == "" || txtEmail.Text == "" || txtAddress.Text == "" || txtPhoneNumber.Text == "" || txtPassword.Text == "")
             {
                 MessageBox.Show("Khong the de trong o nhap", "Thong bao", MessageBoxButtons.OK);
             }
@@ -77,19 +81,19 @@ namespace CD_Management_System
             }
             else
             {
-                account.AccountId = Int32.Parse(txtAccountId.Text);
                 account.UserName = txtUserName.Text;
                 account.FullName = txtFullName.Text;
                 account.Email = txtEmail.Text;
                 account.Address = txtAddress.Text;
                 account.PhoneNumber = txtPhoneNumber.Text;
+                account.PassWord = txtPassword.Text;
                 account.RoleId = "EM";
                 _accountService.Create(account);
                 refreshList();
             }
-                
+
         }
-        
+
 
         private bool phoneNumberRegex(string phoneNumber)
         {
@@ -138,11 +142,45 @@ namespace CD_Management_System
                     p.AccountId,
                     p.UserName,
                     p.FullName,
+                    p.Role.RoleName,
                     p.Email,
                     p.Address,
                     p.PhoneNumber
                 }).ToList();
             }
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            var employee = _accountService.GetAll().Where(p => p.AccountId.Equals(Int32.Parse(txtAccountId.Text))).FirstOrDefault();
+            if (Int32.Parse(txtAccountId.Text).Equals(employee.AccountId))
+            {
+                if (txtUserName.Text == "" || txtFullName.Text == "" || txtEmail.Text == "" || txtAddress.Text == "" || txtPhoneNumber.Text == "" )
+                {
+                    MessageBox.Show("Khong the de trong o nhap", "Thong bao", MessageBoxButtons.OK);
+                }
+                else if (!emailRegex(txtEmail.Text))
+                {
+                    MessageBox.Show("Email sai format", "Thong bao", MessageBoxButtons.OK);
+                }
+                else if (!phoneNumberRegex(txtPhoneNumber.Text))
+                {
+                    MessageBox.Show("So dien thoai sai format", "Thong bao", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    employee.UserName = txtUserName.Text;
+                    employee.FullName = txtFullName.Text;
+                    employee.Email = txtEmail.Text;
+                    employee.Address = txtAddress.Text;
+                    employee.PhoneNumber = txtPhoneNumber.Text;
+                    _accountService.Update(employee);
+                    refreshList();
+                }
+
+            }
+
+        }
+
     }
 }
