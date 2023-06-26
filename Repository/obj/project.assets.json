@@ -2636,11 +2636,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "E:\\PRN211\\project\\CD-Management-App\\Repository\\Repository.csproj",
       "projectName": "Repository",
       "projectPath": "E:\\PRN211\\project\\CD-Management-App\\Repository\\Repository.csproj",
       "packagesPath": "C:\\Users\\binla\\.nuget\\packages\\",
       "outputPath": "E:\\PRN211\\project\\CD-Management-App\\Repository\\obj\\",
+=======
+      "projectUniqueName": "E:\\CD-Management-App\\Repository\\Repository.csproj",
+      "projectName": "Repository",
+      "projectPath": "E:\\CD-Management-App\\Repository\\Repository.csproj",
+      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+      "outputPath": "E:\\CD-Management-App\\Repository\\obj\\",
+>>>>>>> 15b9b62ab2de34ba0dc7b6e5f918139df63bf2f6
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

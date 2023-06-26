@@ -40,6 +40,7 @@ C:\Users\VU HONG ANH\Documents\GitHub\CD-Management-App2\Repository\obj\Debug\ne
 C:\Users\VU HONG ANH\Documents\GitHub\CD-Management-App2\Repository\obj\Debug\net6.0\Repository.pdb
 C:\Users\VU HONG ANH\Documents\GitHub\CD-Management-App2\Repository\obj\Debug\net6.0\Repository.genruntimeconfig.cache
 C:\Users\VU HONG ANH\Documents\GitHub\CD-Management-App2\Repository\obj\Debug\net6.0\ref\Repository.dll
+<<<<<<< HEAD
 E:\PRN211\project\CD-Management-App\Repository\bin\Debug\net6.0\Repository.deps.json
 E:\PRN211\project\CD-Management-App\Repository\bin\Debug\net6.0\Repository.runtimeconfig.json
 E:\PRN211\project\CD-Management-App\Repository\bin\Debug\net6.0\Repository.dll
@@ -54,3 +55,19 @@ E:\PRN211\project\CD-Management-App\Repository\obj\Debug\net6.0\refint\Repositor
 E:\PRN211\project\CD-Management-App\Repository\obj\Debug\net6.0\Repository.pdb
 E:\PRN211\project\CD-Management-App\Repository\obj\Debug\net6.0\Repository.genruntimeconfig.cache
 E:\PRN211\project\CD-Management-App\Repository\obj\Debug\net6.0\ref\Repository.dll
+=======
+E:\CD-Management-App\Repository\bin\Debug\net6.0\Repository.deps.json
+E:\CD-Management-App\Repository\bin\Debug\net6.0\Repository.runtimeconfig.json
+E:\CD-Management-App\Repository\bin\Debug\net6.0\Repository.dll
+E:\CD-Management-App\Repository\bin\Debug\net6.0\Repository.pdb
+E:\CD-Management-App\Repository\obj\Debug\net6.0\Repository.csproj.AssemblyReference.cache
+E:\CD-Management-App\Repository\obj\Debug\net6.0\Repository.GeneratedMSBuildEditorConfig.editorconfig
+E:\CD-Management-App\Repository\obj\Debug\net6.0\Repository.AssemblyInfoInputs.cache
+E:\CD-Management-App\Repository\obj\Debug\net6.0\Repository.AssemblyInfo.cs
+E:\CD-Management-App\Repository\obj\Debug\net6.0\Repository.csproj.CoreCompileInputs.cache
+E:\CD-Management-App\Repository\obj\Debug\net6.0\Repository.dll
+E:\CD-Management-App\Repository\obj\Debug\net6.0\refint\Repository.dll
+E:\CD-Management-App\Repository\obj\Debug\net6.0\Repository.pdb
+E:\CD-Management-App\Repository\obj\Debug\net6.0\Repository.genruntimeconfig.cache
+E:\CD-Management-App\Repository\obj\Debug\net6.0\ref\Repository.dll
+>>>>>>> 15b9b62ab2de34ba0dc7b6e5f918139df63bf2f6

@@ -41,7 +41,8 @@ namespace CD_Management_System
                 {
                     menu = new AdminMenu();
                 }
-                else {
+                else
+                {
                     this.Hide();
                     menu = new EmployeeMenu();
                 }
@@ -63,7 +64,7 @@ namespace CD_Management_System
             {
 
                 return true;
-                
+
             }
             return false;
         }
@@ -73,5 +74,6 @@ namespace CD_Management_System
             txtUsername.Text = String.Empty;
             txtPassword.Text = String.Empty;
         }
+
     }
 }
