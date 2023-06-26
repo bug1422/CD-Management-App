@@ -180,7 +180,6 @@ namespace CD_Management_System
                     }
                 }
             }
-
         }
         private bool checkNumRegex(string input)
         {

@@ -37,7 +37,7 @@ namespace CD_Management_System
 
         private void btnRequestManagement_Click(object sender, EventArgs e)
         {
-            Form rm = new Request();
+            Form rm = new Request(LoggedIn);
             rm.Show();
         }
 

@@ -40,3 +40,17 @@ C:\Users\VU HONG ANH\Documents\GitHub\CD-Management-App2\Repository\obj\Debug\ne
 C:\Users\VU HONG ANH\Documents\GitHub\CD-Management-App2\Repository\obj\Debug\net6.0\Repository.pdb
 C:\Users\VU HONG ANH\Documents\GitHub\CD-Management-App2\Repository\obj\Debug\net6.0\Repository.genruntimeconfig.cache
 C:\Users\VU HONG ANH\Documents\GitHub\CD-Management-App2\Repository\obj\Debug\net6.0\ref\Repository.dll
+E:\PRN211\project\CD-Management-App\Repository\bin\Debug\net6.0\Repository.deps.json
+E:\PRN211\project\CD-Management-App\Repository\bin\Debug\net6.0\Repository.runtimeconfig.json
+E:\PRN211\project\CD-Management-App\Repository\bin\Debug\net6.0\Repository.dll
+E:\PRN211\project\CD-Management-App\Repository\bin\Debug\net6.0\Repository.pdb
+E:\PRN211\project\CD-Management-App\Repository\obj\Debug\net6.0\Repository.csproj.AssemblyReference.cache
+E:\PRN211\project\CD-Management-App\Repository\obj\Debug\net6.0\Repository.GeneratedMSBuildEditorConfig.editorconfig
+E:\PRN211\project\CD-Management-App\Repository\obj\Debug\net6.0\Repository.AssemblyInfoInputs.cache
+E:\PRN211\project\CD-Management-App\Repository\obj\Debug\net6.0\Repository.AssemblyInfo.cs
+E:\PRN211\project\CD-Management-App\Repository\obj\Debug\net6.0\Repository.csproj.CoreCompileInputs.cache
+E:\PRN211\project\CD-Management-App\Repository\obj\Debug\net6.0\Repository.dll
+E:\PRN211\project\CD-Management-App\Repository\obj\Debug\net6.0\refint\Repository.dll
+E:\PRN211\project\CD-Management-App\Repository\obj\Debug\net6.0\Repository.pdb
+E:\PRN211\project\CD-Management-App\Repository\obj\Debug\net6.0\Repository.genruntimeconfig.cache
+E:\PRN211\project\CD-Management-App\Repository\obj\Debug\net6.0\ref\Repository.dll

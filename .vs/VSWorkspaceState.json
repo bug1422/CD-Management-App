@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CD_Management_System",
+    "\\NUnitTest"
   ],
+  "SelectedNode": "\\NUnitTest\\MyTest.cs",
   "PreviewInSolutionExplorer": false
 }

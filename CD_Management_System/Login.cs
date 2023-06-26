@@ -35,18 +35,18 @@ namespace CD_Management_System
                 var user = _userServices.GetAll().Where(p => p.UserName == txtUsername.Text && p.PassWord == txtPassword.Text).FirstOrDefault();
                 sendUserName = txtUsername.Text;
                 sendPassword = txtPassword.Text;
+                this.Hide();
+                Form menu = new Form();
                 if (user.RoleId == "MG")
                 {
-                    this.Hide();
-                    Form mngMenu = new AdminMenu();
-                    mngMenu.ShowDialog();
+                    menu = new AdminMenu();
                 }
                 else {
                     this.Hide();
-                    Form empMenu = new EmployeeMenu();
-                    empMenu.ShowDialog();
+                    menu = new EmployeeMenu();
                 }
-
+                menu.ShowDialog();
+                this.Close();
             }
             else
             {

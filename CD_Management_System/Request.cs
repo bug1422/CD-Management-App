@@ -1,4 +1,4 @@
-﻿using Repository.Models;
+﻿6using Repository.Models;
 using Repository.Services;
 using System.Data;
 using System.Text.RegularExpressions;
@@ -16,18 +16,14 @@ namespace CD_Management_System
         private bool isAsc = true;
         private string filter = "RequestId";
         private string searchKey = "";
-        public Request()
+        public Request(Account user)
         {
             InitializeComponent();
             crr = new CustomerRequestService();
             initializeReq();
             updateDvg();
 
-            // change later
-            user = new Account();
-            user.AccountId = 1;
-            user.FullName = "Phạm Quang Thái";
-            user.RoleId = "EM";
+            this.user = user;
             searchBox.DataSource = new List<string> {
                 "RequestId",
                 "CustomerName",
@@ -125,7 +121,7 @@ namespace CD_Management_System
                 crr.Create(cr);
                 req = crr.GetAll().ToList().Last();
                 debug();
-                addToLog("create");
+                addToLog("Created");
                 updateDvg();
                 getReq();
                 MessageBox.Show("Request created!", "Create Request done");
@@ -150,7 +146,7 @@ namespace CD_Management_System
             if (crr.Remove(req))
             {
                 MessageBox.Show("Request removed successfully!", "Removal done");
-                addToLog("remove");
+                addToLog("Removed");
                 initializeReq();
                 getReq();
                 updateDvg();
@@ -228,7 +224,7 @@ namespace CD_Management_System
                 else txtStatus.Text = "Denied";
                 req.Status = txtStatus.Text;
                 crr.Update(req);
-                addToLog(b ? "accept" : "denie");
+                addToLog(b ? "Accepted" : "Denied");
                 initializeReq();
                 getReq();
                 updateDvg();
@@ -309,15 +305,15 @@ namespace CD_Management_System
 
         private void requestDgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
+            if (e.RowIndex >= 0)
             {
+                string? requestId = requestDgv.Rows[e.RowIndex].Cells[0].Value.ToString();
+                req = crr.GetAll().ToList().FirstOrDefault(p => p.RequestId.ToString() == requestId);
 
+                getReq();
+                setBtnEnable(true);
             }
-            string? requestId = requestDgv.Rows[e.RowIndex].Cells[0].Value.ToString();
-            req = crr.GetAll().ToList().FirstOrDefault(p => p.RequestId.ToString() == requestId);
-
-            getReq();
-            setBtnEnable(true);
+            
         }
 
         private void always_handled(object sender, KeyPressEventArgs e)
@@ -392,21 +388,8 @@ namespace CD_Management_System
         private void addToLog(string action)
         {
             ActivityLogService alr = new ActivityLogService();
-            string s = "Customer Request table: (" + user.RoleId + "-" + user.AccountId + " " + user.FullName + ") " + action + "s ";
-            switch (action)
-            {
-                case "create":
-                    {
-                        s += "new request( ";
-                        break;
-                    }
-                default:
-                    {
-                        s += "a request( ";
-                        break;
-                    }
-            }
-            s += "id: " + req.RequestId + ", name: " + req.CustomerName + ") ";
+            string s = "Customer Request table: (" + user.RoleId + "-" + user.AccountId + " " + user.FullName + ") " + action + " Request";
+            s += "( id: " + req.RequestId + ", name: " + req.CustomerName + ") ";
             s += "at " + DateTime.Now.ToString("hh:mm:ss tt");
             ActivityLog al = new ActivityLog();
             al.ActivityDate = DateTime.Now;
